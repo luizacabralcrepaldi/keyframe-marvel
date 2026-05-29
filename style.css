@@ -94,7 +94,129 @@ body::after {
 
   z-index: -2;
 }
+.hammer-wrapper {
+  position: fixed;
 
+  top: 0;
+  left: -250px;
+
+  z-index: 9999;
+
+  pointer-events: none;
+
+  animation: hammerFly 8s linear infinite;
+}
+
+.thor-hammer {
+  width: 140px;
+
+  position: relative;
+
+  z-index: 2;
+
+  filter:
+    drop-shadow(0 0 15px #4fc3ff)
+    drop-shadow(0 0 40px #4fc3ff);
+
+  animation: hammerSpin 2s linear infinite;
+}
+
+.lightning {
+  position: absolute;
+
+  top: 50%;
+  left: 20px;
+
+  width: 250px;
+  height: 6px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #4fc3ff,
+      white,
+      #4fc3ff,
+      transparent
+    );
+
+  border-radius: 50px;
+
+  transform: translateY(-50%);
+
+  filter: blur(4px);
+
+  opacity: 0.9;
+
+  animation: lightningPulse 0.2s infinite;
+}
+
+@keyframes hammerFly {
+
+  0% {
+    transform:
+      translateX(0)
+      translateY(0);
+
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  50% {
+    transform:
+      translateX(60vw)
+      translateY(180px);
+  }
+
+  100% {
+    transform:
+      translateX(130vw)
+      translateY(-120px);
+
+    opacity: 0;
+  }
+}
+
+@keyframes hammerSpin {
+
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(720deg);
+  }
+}
+
+@keyframes lightningPulse {
+
+  0% {
+    opacity: 0.4;
+
+    transform:
+      translateY(-50%)
+      scaleX(1);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform:
+      translateY(-50%)
+      scaleX(1.1);
+  }
+
+  100% {
+    opacity: 0.4;
+
+    transform:
+      translateY(-50%)
+      scaleX(1);
+  }
+}
 .navbar {
   position: fixed;
   top: 0;
